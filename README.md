@@ -36,15 +36,15 @@ Sortable List
         return base.OnInitializedAsync();
     }
 
-    protected async override Task OnAfterRenderAsync()
+    protected async Task OnAfterRenderAsync()
     {
         if (FirstRun)
         {
             MyGroup.Sortable.SetData(items);
-            await MyGroup.Sortable.Create(MyGroup.Id, new SortableJsOptions
+            await MyGroup.Sortable.CreateAsync(MyGroup.Id, new SortableJsOptions
             {
-                group = "test",
-                animation = 100,
+                Group = "test",
+                Animation = 100,
             });         
             FirstRun = false;
             StateHasChanged();
